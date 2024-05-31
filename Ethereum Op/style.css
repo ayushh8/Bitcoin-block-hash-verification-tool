@@ -1,0 +1,51 @@
+/*
+	Title: JavaScript based Bitcoin block hash verification tool
+*/
+
+body{
+	background: #eeeeee;
+	font-family: "Calibri";
+}
+
+.title{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+.data-entry-form input{
+	margin-bottom: 10px;
+}
+
+#result-hash{
+	display: none;
+	margin-top:10px;
+	text-align: center;
+	font-size: 16px;
+}
+
+#accordion{
+	width:100%;
+}
+
+.card-block{
+	padding:20px;
+}
+
+.card{
+	margin-bottom:10px;
+}
+
+button{
+	cursor: pointer;
+}
+
+#loader{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background:url(../images/spinner.gif) 50% 50% no-repeat #ffffff;
+}

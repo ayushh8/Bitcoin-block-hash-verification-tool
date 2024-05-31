@@ -1,0 +1,479 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Aneesh Bhatnagar">
+	<title>Performing Ethereum Operations</title>
+	<link rel="stylesheet" type="text/css" href="./Performing Ethereum Operations_files/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./Performing Ethereum Operations_files/style.css">
+</head>
+<body class="" style="">
+	<div id="loader" style="display: none;"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="title">Part 2: Operations on Ethereum</h1>
+			</div>
+		</div>
+		<div class="row" style="margin-top:-20px">
+			<div class="col-2">
+			</div>
+			<div class="col-8">
+				<button type="button" class="btn btn-primary" style="margin-bottom: 20px;" id="goHome">↩ Return to Homepage</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2">
+			</div>
+			<div class="col-5 text-center">
+				<h2>Node_1</h2>
+			</div>
+			<div class="col-5 text-center">
+				<h2>Node_2</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2 text-center">
+				<label for="enodeAddress" style="margin-top:8px;">Enode</label>
+				<br>
+				<label for="coinbaseAddress" style="margin-top:15px;">Coinbase Address</label>
+				<br>
+			</div>
+			<div class="col-5">
+				<input type="text" style="margin-bottom: 10px;" class="form-control" id="enodeAddress" placeholder="Your Enode address" readonly="">
+				<input type="text" class="form-control" id="coinbaseAddress" placeholder="Your Coinbase address" readonly="">
+			</div>
+			<div class="col-5">
+				<input type="text" style="margin-bottom: 10px;" class="form-control" id="enodeAddress2" placeholder="Your Enode address" readonly="">
+				<input type="text" class="form-control" id="coinbaseAddress2" placeholder="Your Coinbase address" readonly="">
+			</div>
+		</div>
+		<div class="row justify-content-center" style="margin-top: 25px;">
+			<div id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="card">
+					<div class="card-header" role="tab" id="headingOne">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#connectPeer" aria-expanded="false" aria-controls="connectPeer" class="collapsed">Add Peer</a></h5>
+					</div>
+					<div id="connectPeer" class="collapse" role="tabpanel" aria-labelledby="headingOne" style="">
+						<div class="card-block">
+							<p>We will connect the two nodes that you created to each other. To do so, we will add the enode of one of the nodes to the other and they both will be connected. Use the button below to connect them.</p>
+							<form id="connectToPeer" class="data-entry-form">
+								<div class="form-group row text-center">
+									<div class="col-12">
+										<button type="submit" class="btn btn-primary">Connect Peers</button>
+									</div>
+								</div>
+								<label for="peerStatus">Connected Peer Status</label>
+								<input type="text" class="form-control" id="peerStatus" placeholder="Add Peer Status" readonly="">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingTwo">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#checkPeerCount" aria-expanded="false" aria-controls="checkPeerCount" class="collapsed">Check Peer Count</a></h5>
+					</div>
+					<div id="checkPeerCount" class="collapse" role="tabpanel" aria-labelledby="headingTwo" style="">
+						<div class="card-block">
+							<p>If you want to check the count of connected peers, press the button below to query and return the result.</p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="checkPeer" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12">
+												<button type="submit" class="btn btn-primary">Check Peer Count</button>
+											</div>
+										</div>
+										<label for="peerCount">Connected Peer Count</label>
+										<input type="text" class="form-control" id="peerCount" placeholder="Connected Peer Count" readonly="">
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="checkPeer2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Peer Count</button>
+											</div>
+										</div>
+										<label for="peerCount">Connected Peer Count</label>
+										<input type="text" class="form-control" id="peerCount2" placeholder="Connected Peer Count" readonly="">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingThree">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#checkPeers" aria-expanded="false" aria-controls="checkPeers" class="collapsed">Check Peer Details</a></h5>
+					</div>
+					<div id="checkPeers" class="collapse" role="tabpanel" aria-labelledby="headingThree" style="">
+						<div class="card-block">
+							<p>If you want to check the connected peers, press the button below to query and return the result.</p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="checkPeersForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Peer Details</button>
+											</div>
+										</div>
+										<label for="peerDetails">Connected Peers</label>
+										<textarea rows="7" class="form-control" id="peerDetails" placeholder="Connected Peers Details" readonly=""></textarea>
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="checkPeersForm2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Peer Details</button>
+											</div>
+										</div>
+										<label for="peerDetails">Connected Peers</label>
+										<textarea rows="7" class="form-control" id="peerDetails2" placeholder="Connected Peers Details" readonly=""></textarea>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingThree">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#createAccounts" aria-expanded="false" aria-controls="createAccounts" class="collapsed">Create New Accounts</a></h5>
+					</div>
+					<div id="createAccounts" class="collapse" role="tabpanel" aria-labelledby="headingThree" style="">
+						<div class="card-block">
+							<p>Let us create a few more accounts (4) for every node. Enter the password for the coinbase account so we can use the same password for the other accounts as well.</p>
+							<p><b>We are using the same password so it makes it easy to remember the password. In reality, make sure you use different passwords</b></p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="accountForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="accountPassword" placeholder="Enter your Password here">
+											</div>
+											<div class="col-6">
+												<button type="submit" class="btn btn-primary">Create 4 accounts</button>
+											</div>
+										</div>
+										<label for="createAccountStatus">Account Creation Status</label>
+										<input type="text" class="form-control" id="createAccountStatus" placeholder="Account Creation Status" readonly="">
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="accountForm2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="accountPassword2" placeholder="Enter your Password here">
+											</div>
+											<div class="col-6">
+												<button type="submit" class="btn btn-primary">Create 4 accounts</button>
+											</div>
+										</div>
+										<label for="createAccountStatus2">Account Creation Status</label>
+										<input type="text" class="form-control" id="createAccountStatus2" placeholder="Account Creation Status" readonly="">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingSix">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#checkBalance" aria-expanded="false" aria-controls="checkBalance" class="collapsed">List Accounts and Check Balance</a></h5>
+					</div>
+					<div id="checkBalance" class="collapse" role="tabpanel" aria-labelledby="headingSix" style="">
+						<div class="card-block">
+							<p>If you want to check your balance, press the button below to query and return the result for all the accounts.</p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="checkBalanceForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Balance</button><br><br>
+												<input type="text" class="form-control" id="balanceStatus" placeholder="Status" readonly="">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<label for="accountAddress">Account Address</label>
+											</div>
+											<div class="col-3">
+												<label for="balanceWei">Balance (in Weis)</label>
+											</div>
+											<div class="col-3">
+												<label for="balanceEther">Balance (in Ethers)</label>
+											</div>
+										</div>
+										<div class="row" id="accountList"><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x148d80b1dd05584715bfbb2c2692b7dcd0a4bda6"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x093a66dc99679408896dc05703d9324aa560d155"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0xe72c36f4819f008a97b8798fdf2a898c62c81fbe"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0xdf6507fc9e54f512ed67db4b91452286db6ca432"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x753ec8c32b5d57ea3ecda7cf59bd253c92d47699"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div></div>
+										
+										
+										
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="checkBalanceForm2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Balance</button><br><br>
+												<input type="text" class="form-control" id="balanceStatus2" placeholder="Status" readonly="">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<label for="accountAddress">Account Address</label>
+											</div>
+											<div class="col-3">
+												<label for="balanceWei">Balance (in Weis)</label>
+											</div>
+											<div class="col-3">
+												<label for="balanceEther">Balance (in Ethers)</label>
+											</div>
+										</div>
+										<div class="row" id="accountList2"><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0xf995b618d723c23230cf5e23412107c94d39331c"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0xac93785f802e978cd5c863430182c5a2a745eaff"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x667613654658a5a93de668a35e141265dc3dd5a7"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x4a00369ade1b9155b5dd615282c1e14c745be7ff"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div><div class="col-6"><input type="text" class="form-control" id="accountAddress" placeholder="Account Address" readonly="" value="0x08390067944464c8d1c01c1d96767a752490ff02"></div><div class="col-3"><input type="text" class="form-control" id="balanceWei" placeholder="Balance (in Weis)" readonly="" value="0"></div><div class="col-3"><input type="text" class="form-control" id="balanceEther" placeholder="Balance (in Ether)" readonly="" value="0"></div></div>
+										
+										
+										
+									</form>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingFive">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#miner" aria-expanded="false" aria-controls="miner" class="collapsed">Miner</a></h5>
+					</div>
+					<div id="miner" class="collapse" role="tabpanel" aria-labelledby="headingFive" style="">
+						<div class="card-block">
+							<p>If you want to Start or Stop a miner, use the buttons below to do so for either of the two nodes.</p>
+							<p>Before you start your miner, make sure you check the account balances. Then start the miner and wait for the timer. Then check your balance again.</p>
+							<div class="row text-center">
+								<div class="col-12">
+<!-- 									<h4>Node_1</h4> -->
+									<button type="button" class="btn btn-large btn-primary" style="margin-bottom: 20px;" id="startMiner">Start Miner</button><br>
+									<button type="button" class="btn btn-large btn-primary" style="margin-bottom: 20px;" id="stopMiner">Stop Miner</button><br>
+									<label for="minerStatus">Miner Response</label>
+									<input type="text" class="form-control" id="minerStatus" placeholder="Miner Response" readonly="">
+								</div>
+								<!-- <div class="col-6">
+									<h4>Node_2</h4>
+									<button type="button" class="btn btn-primary btn-large" style="margin-bottom: 20px;" id="startMiner2">Start Miner</button><br/>
+									<button type="button" class="btn btn-primary btn-large" style="margin-bottom: 20px;" id="stopMiner2">Stop Miner</button><br/>
+									<label for="minerStatus2">Miner Response</label>
+									<input type="text" class="form-control" id="minerStatus2" placeholder="Miner Response" readonly>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingFour">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#unlockAccount" aria-expanded="false" aria-controls="unlockAccount" class="collapsed">Unlock Account</a></h5>
+					</div>
+					<div id="unlockAccount" class="collapse" role="tabpanel" aria-labelledby="headingFour" style="">
+						<div class="card-block">
+							<p>If you want to unlock your account, please enter the account address and the password you used to create the account and submit the form.</p>
+							<p>You can get the account addresses from the list accounts and balance section above.</p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="unlockAccountForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="unlockAccountID" placeholder="Enter the account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="password" placeholder="Enter your Password here">
+											</div>
+										</div>
+										<div class="form-group row text-center">
+											<div class="col-12">
+												<button type="submit" class="btn btn-primary">Unlock Account</button>
+											</div>
+										</div>
+										<label for="unlockStatus">Unlock Status</label>
+										<input type="text" class="form-control" id="unlockStatus" placeholder="Account Unlock Status" readonly="">
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="unlockAccountForm2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="unlockAccountID2" placeholder="Enter the account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="password2" placeholder="Enter your Password here">
+											</div>
+										</div>
+										<div class="form-group row text-center">
+											<div class="col-12">
+												<button type="submit" class="btn btn-primary">Unlock Account</button>
+											</div>
+										</div>
+										<label for="unlockStatus2">Unlock Status</label>
+										<input type="text" class="form-control" id="unlockStatus2" placeholder="Account Unlock Status" readonly="">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingFive">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#sendTransaction" aria-expanded="false" aria-controls="sendTransaction" class="collapsed">Send Transaction</a></h5>
+					</div>
+					<div id="sendTransaction" class="collapse" role="tabpanel" aria-labelledby="headingFive" style="">
+						<div class="card-block">
+							<p>If you want to initiate a transaction, enter the sender's account address, the receiver's account address and the amount you want to send in ethers. Please make sure you unlock the sender account at the respective node and you have sufficient funds.</p>
+							<p>You can get the account addresses from the list accounts and balance section above.</p>
+							<div class="row">
+								<div class="col-6">
+									<h4>Node_1</h4>
+									<form id="sendTransactionForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="senderAddress" placeholder="Enter sender's account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="destinationAddress" placeholder="Enter receiver's account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="sendAmount" placeholder="Enter the amount (in Ethers)">	
+											</div>
+											<div class="col-6">
+												<button type="submit" class="btn btn-primary">Send Transaction</button>
+											</div>
+										</div>
+										<label for="transactionStatus">Transaction Status</label>
+										<input type="text" class="form-control" id="transactionStatus" placeholder="Transaction Status" readonly="">
+									</form>
+								</div>
+								<div class="col-6">
+									<h4>Node_2</h4>
+									<form id="sendTransactionForm2" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-6">
+												<input type="text" class="form-control" id="senderAddress2" placeholder="Enter sender's account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="destinationAddress2" placeholder="Enter receiver's account address here">	
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control" id="sendAmount2" placeholder="Enter the amount (in Ethers)">	
+											</div>
+											<div class="col-6">
+												<button type="submit" class="btn btn-primary">Send Transaction</button>
+											</div>
+										</div>
+										<label for="transactionStatus2">Transaction Status</label>
+										<input type="text" class="form-control" id="transactionStatus2" placeholder="Transaction Status" readonly="">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header" role="tab" id="headingSeven">
+						<h5 class="mb-0"><a data-toggle="collapse" data-parent="#accordion" href="http://localhost:8080/ethereum.html#checkTransaction" aria-expanded="true" aria-controls="checkTransaction" class="">Check Transaction Status</a></h5>
+					</div>
+					<div id="checkTransaction" class="collapse show" role="tabpanel" aria-labelledby="headingSeven" style="">
+						<div class="card-block">
+							<p>If you want to check the status of transactions, press the button below to query the blockchain and return the result.</p>
+							<p>For your blockchain, since the difficulty is not too high, every transaction is mined pretty quickly. You should stop the miner and then submit a transaction. After that, if you check you will find that there is a pending transaction. Start the miner to send the transaction through.</p>
+							<div class="row">
+								<div class="col-12">
+									<form id="checkTransactionForm" class="data-entry-form">
+										<div class="form-group row">
+											<div class="col-12 text-center">
+												<button type="submit" class="btn btn-primary">Check Transaction Status</button>
+											</div>
+										</div>
+										<label for="pendingTransactions">Pending Transactions</label>
+										<input type="text" class="form-control" id="pendingTransactions" placeholder="Pending Transactions" readonly="">
+										<label for="queuedTransactions">Queued Transactions</label>
+										<input type="text" class="form-control" id="queuedTransactions" placeholder="Queued Transactions" readonly="">
+									</form>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center">
+				<p><b>Note</b>: You can go to any of these above sections again in any order that you want to explore the tool.</p>
+				<button type="button" class="btn btn-large btn-primary" id="submitProject">Submit Project</button>
+				<input type="text" placeholder="Your submission token will be generated here." readonly="" class="form-control" style="margin:20px auto; width: 80%;" id="submitScore">
+				<button type="button" class="btn btn-large btn-primary" id="copyScore" style=" margin-bottom: 80px; ">Copy Token to Clipboard</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="shortModal" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Please Wait...</h5>
+				</div>
+				<div class="modal-body">
+					<p>Waiting <span id="shortTimer">0m 5s</span> for the action to complete before resuming operations.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="longModal" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Waiting for DAG to be generated...</h5>
+				</div>
+				<div class="modal-body">
+					<p>Checking if DAG has been generated or not. If it has not been generated, please wait a maximum of <span id="longTimer" style="font-weight: bold;">6m 43s </span> for them to be generated. If it is completed before that, this screen will disappear and you can continue ahead.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="./Performing Ethereum Operations_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./Performing Ethereum Operations_files/popper.min.js"></script>
+	<script type="text/javascript" src="./Performing Ethereum Operations_files/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./Performing Ethereum Operations_files/script.js"></script>
+	<script>
+		$(window).on('load', function(){
+			$.ajax({
+				url: '/api/startWeb3', 
+				type: 'POST', 
+				contentType: 'application/json'}
+			).done(function(resp){
+				if(resp.status == "error"){
+					alert(resp.errorDetails);
+					window.location.href = "./index.html"
+				}else if(resp.status == "complete"){
+					$("#enodeAddress").val(resp.enode1);
+					$("#coinbaseAddress").val(resp.coinbase1);
+					$("#enodeAddress2").val(resp.enode2);
+					$("#coinbaseAddress2").val(resp.coinbase2);
+					$("#loader").fadeOut('slow');
+				}
+			});
+
+			$("#goHome").on('click', function(e){
+				e.preventDefault();
+				window.location.href = "./index.html";
+			})
+		});
+	</script>
+
+</body></html>
